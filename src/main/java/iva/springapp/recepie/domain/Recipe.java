@@ -1,6 +1,7 @@
 package iva.springapp.recepie.domain;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created By iVa on 3/10/2021.
@@ -19,6 +20,10 @@ public class Recipe {
     private String directions;
     //todo add
     //private Difficulty difficulty;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
+    private Set<Ingredient> ingredients;
+
     @Lob
     private byte[] image;
 
