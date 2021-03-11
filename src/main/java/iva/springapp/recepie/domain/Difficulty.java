@@ -5,5 +5,5 @@ package iva.springapp.recepie.domain;
  */
 public enum Difficulty {
 
-    EASY, MODEREATE, KIND_OF_HARD, HARD
+    EASY, MODERATE, KIND_OF_HARD, HARD
 }

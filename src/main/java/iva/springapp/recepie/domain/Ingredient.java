@@ -1,6 +1,7 @@
 package iva.springapp.recepie.domain;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 /**
  * Created By iVa on 3/10/2021.
@@ -13,21 +14,14 @@ public class Ingredient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String description;
-    private String amount;
+    private BigDecimal amount;
 
     @OneToOne(fetch = FetchType.EAGER)
-    private UnitOfMeasurement uom;
+    private UnitOfMeasure uom;
 
     @ManyToOne
     private Recipe recipe;
 
-    public UnitOfMeasurement getUom() {
-        return uom;
-    }
-
-    public void setUom(UnitOfMeasurement uom) {
-        this.uom = uom;
-    }
 
     public Long getId() {
         return id;
@@ -45,11 +39,12 @@ public class Ingredient {
         this.description = description;
     }
 
-    public String getAmount() {
+
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 
@@ -59,5 +54,13 @@ public class Ingredient {
 
     public void setRecipe(Recipe recipe) {
         this.recipe = recipe;
+    }
+
+    public UnitOfMeasure getUom() {
+        return uom;
+    }
+
+    public void setUom(UnitOfMeasure uom) {
+        this.uom = uom;
     }
 }

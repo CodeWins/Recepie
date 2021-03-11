@@ -6,14 +6,13 @@ import javax.persistence.*;
  * Created By iVa on 3/10/2021.
  */
 @Entity
-
 public class Notes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @OneToOne
-    private String recipe;
+    private Recipe recipe;
 
     @Lob
     private String recipeNotes;
@@ -26,11 +25,12 @@ public class Notes {
         this.id = id;
     }
 
-    public String getRecipe() {
+
+    public Recipe getRecipe() {
         return recipe;
     }
 
-    public void setRecipe(String recipe) {
+    public void setRecipe(Recipe recipe) {
         this.recipe = recipe;
     }
 
